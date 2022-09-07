@@ -1,24 +1,26 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
-import { increaseCounter, decreaseCounter } from "./redux/action/counterAction";
-const App = () => {
-  const count = useSelector((state) => state.counter.count);
-  const dispatch = useDispatch();
+// đây là nơi tổng hợp tất cả file JS
 
+import "./App.scss";
+import { Outlet, Link } from "react-router-dom";
+// chú ý kí tự in hoa, in thường ở folder và file bên trong
+import Header from "./components/Header/header";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div>Count = {count}</div>
-        <button onClick={() => dispatch(increaseCounter())}>Increase</button>
-        <button onClick={() => dispatch(decreaseCounter())}>Decrease</button>
-      </header>
+    <div className="app-container">
+      <div className="header-container">
+        <Header />
+      </div>
+      <div className="main-container">
+        <div className="sidenav-container"></div>
+        <div className="app-content"></div>
+        <Outlet />
+        {/* lồng nhau giữa các routr nên chia sẻ đc phần dùng chung 
+        khi render thì Outlet ko còn nữa, chỉ còn component user, admin
+        Outlet chỉ là thằng bọc ngoài thôi, nhưng là tín hiệu để báo React router biết thằng con sẽ
+        render ở đây. ko dùng component Outlet nhưng phải khai báo vào */}
+      </div>
     </div>
   );
 };
-
 export default App;

@@ -1,0 +1,44 @@
+.manage-user-container {
+  padding: 10px;
+  .users-content {
+    .btn-add-new {
+      margin: 15px 0;
+    }
+  }
+  .title {
+    font-weight: 600;
+    font-size: 20px;
+  }
+}
+
+// vì modal ko ăn theo div root nên phải bọc nó bằng className "modal-add-user"
+.modal-add-user {
+  .img-preview {
+    border: 1px solid red;
+    height: 150px;
+    border: 1px dashed;
+    color: #ccc;
+    justify-content: center;
+    display: flex;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .label-upload {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    padding: 3px 5px;
+    gap: 5px;
+    border: 1px;
+    border-radius: 5px;
+    background: #eee;
+    cursor: pointer;
+    width: fit-content;
+    &:hover {
+      background-color: #dcdcdc;
+    }
+  }
+}
